@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPC Store Locator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #logo {
+            height: 50px;
+        }
+
+        #legend {
+            font-size: 14px;
+        }
+
+        #legend span {
+            margin-left: 15px;
+        }
+
+        #controls {
+            padding: 10px 20px;
+            background-color: #fff;
+        }
+
+        #controls select {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        #map {
+            height: 85vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with logo and legend -->
+    <div id="header">
+        <div>
+            <img id="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Company Logo">
+        </div>
+        <h2>GPC Store Locator</h2>
+        <div id="legend">
+            <strong>Legend:</strong>
+            <span style="color: red;">■ GPC</span>
+            <span style="color: blue;">■ MOT</span>
+            <span style="color: green;">■ AAG</span>
+            <span style="color: orange;">■ APAC</span>
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div id="controls">
+        <label for="buSelect">Business Unit:</label>
+        <select id="buSelect">
+            <option value="ALL">ALL Business Units</option>
+            {% for bu in business_units %}
+                <option value="{{ bu }}">{{ bu }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="countrySelect">Country:</label>
+        <select id="countrySelect">
+            <option value="ALL">ALL Countries</option>
+        </select>
+    </div>
+
+    <!-- Map -->
+    <div id="map"></div>
+
+    <!-- Google Maps Script -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap"
+        async defer>
+    </script>
+
+    <script>
+        const locations = {{ locations|tojson }};
+        const countriesByBU = {{ countries_by_bu|tojson }};
+        let map, markers = [];
+
+        const colorMap = {
+            GPC: "red",
+            MOT: "blue",
+            AAG: "green",
+            APAC: "orange"
+        };
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 2,
+                center: { lat: 20, lng: 0 },
+                styles: [  // SnazzyMaps dark style (you can change it)
+                    {
+                        "elementType": "geometry",
+                        "stylers": [{"color": "#1d2c4d"}]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [{"color": "#8ec3b9"}]
+                    },
+                    {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [{"color": "#1a3646"}]
+                    },
+                    {
+                        "featureType": "administrative.country",
+                        "elementType": "geometry.stroke",
+                        "stylers": [{"color": "#4b6878"}]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry",
+                        "stylers": [{"color": "#263c3f"}]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [{"color": "#406d80"}]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry",
+                        "stylers": [{"color": "#304a7d"}]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "geometry",
+                        "stylers": [{"color": "#2f3948"}]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [{"color": "#17263c"}]
+                    }
+                ]
+            });
+
+            updateMarkers(locations);
+        }
+
+        function updateMarkers(data) {
+            // Clear old markers
+            markers.forEach(marker => marker.setMap(null));
+            markers = [];
+
+            // Add new markers
+            data.forEach(loc => {
+                const marker = new google.maps.Marker({
+                    position: { lat: loc.lat, lng: loc.lng },
+                    map: map,
+                    title: loc.name,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: colorMap[loc.business_unit],
+                        fillOpacity: 0.9,
+                        scale: 6,
+                        strokeColor: "#fff",
+                        strokeWeight: 1
+                    }
+                });
+                markers.push(marker);
+            });
+        }
+
+        document.getElementById("buSelect").addEventListener("change", function () {
+            const bu = this.value;
+            const countrySelect = document.getElementById("countrySelect");
+
+            // Reset country options
+            countrySelect.innerHTML = `<option value="ALL">ALL Countries</option>`;
+
+            if (bu !== "ALL") {
+                (countriesByBU[bu] || []).forEach(country => {
+                    const opt = document.createElement("option");
+                    opt.value = country;
+                    opt.textContent = country;
+                    countrySelect.appendChild(opt);
+                });
+            }
+
+            filterAndUpdate();
+        });
+
+        document.getElementById("countrySelect").addEventListener("change", filterAndUpdate);
+
+        function filterAndUpdate() {
+            const bu = document.getElementById("buSelect").value;
+            const country = document.getElementById("countrySelect").value;
+
+            let filtered = locations;
+
+            if (bu !== "ALL") {
+                filtered = filtered.filter(l => l.business_unit === bu);
+            }
+
+            if (country !== "ALL") {
+                filtered = filtered.filter(l => l.country === country);
+            }
+
+            updateMarkers(filtered);
+        }
+    </script>
+</body>
+</html>
