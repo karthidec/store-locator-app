@@ -1,0 +1,285 @@
+[
+  {
+    "name": "GPC Store 1",
+    "country": "United States",
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "business_unit": "GPC"
+  },
+  {
+    "name": "GPC Store 2",
+    "country": "Canada",
+    "lat": 43.6532,
+    "lng": -79.3832,
+    "business_unit": "GPC"
+  },
+  {
+    "name": "GPC Store 3",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "business_unit": "GPC"
+  },
+  {
+    "name": "GPC Store 4",
+    "country": "Germany",
+    "lat": 52.52,
+    "lng": 13.405,
+    "business_unit": "GPC"
+  },
+  {
+    "name": "GPC Store 5",
+    "country": "Mexico",
+    "lat": 19.4326,
+    "lng": -99.1332,
+    "business_unit": "GPC"
+  },
+  {
+    "name": "GPC Store 6",
+    "country": "Belgium",
+    "lat": 50.8503,
+    "lng": 4.3517,
+    "business_unit": "GPC"
+  },
+  {
+    "name": "GPC Store 7",
+    "country": "Spain",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "business_unit": "GPC"
+  },
+  {
+    "name": "GPC Store 8",
+    "country": "Poland",
+    "lat": 52.2297,
+    "lng": 21.0122,
+    "business_unit": "GPC"
+  },
+  {
+    "name": "GPC Store 9",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "business_unit": "GPC"
+  },
+  {
+    "name": "GPC Store 10",
+    "country": "Portugal",
+    "lat": 38.7169,
+    "lng": -9.1399,
+    "business_unit": "GPC"
+  },
+
+  {
+    "name": "MOT Store 1",
+    "country": "United States",
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "business_unit": "MOT"
+  },
+  {
+    "name": "MOT Store 2",
+    "country": "Canada",
+    "lat": 45.5017,
+    "lng": -73.5673,
+    "business_unit": "MOT"
+  },
+  {
+    "name": "MOT Store 3",
+    "country": "Ireland",
+    "lat": 53.3498,
+    "lng": -6.2603,
+    "business_unit": "MOT"
+  },
+  {
+    "name": "MOT Store 4",
+    "country": "Mexico",
+    "lat": 21.1619,
+    "lng": -86.8515,
+    "business_unit": "MOT"
+  },
+  {
+    "name": "MOT Store 5",
+    "country": "France",
+    "lat": 43.2965,
+    "lng": 5.3698,
+    "business_unit": "MOT"
+  },
+  {
+    "name": "MOT Store 6",
+    "country": "U.K.",
+    "lat": 51.5072,
+    "lng": -0.1276,
+    "business_unit": "MOT"
+  },
+  {
+    "name": "MOT Store 7",
+    "country": "Germany",
+    "lat": 48.1351,
+    "lng": 11.582,
+    "business_unit": "MOT"
+  },
+  {
+    "name": "MOT Store 8",
+    "country": "Spain",
+    "lat": 41.3851,
+    "lng": 2.1734,
+    "business_unit": "MOT"
+  },
+  {
+    "name": "MOT Store 9",
+    "country": "Portugal",
+    "lat": 41.1579,
+    "lng": -8.6291,
+    "business_unit": "MOT"
+  },
+  {
+    "name": "MOT Store 10",
+    "country": "Belgium",
+    "lat": 51.2194,
+    "lng": 4.4025,
+    "business_unit": "MOT"
+  },
+
+  {
+    "name": "AAG Store 1",
+    "country": "United States",
+    "lat": 36.1627,
+    "lng": -86.7816,
+    "business_unit": "AAG"
+  },
+  {
+    "name": "AAG Store 2",
+    "country": "Canada",
+    "lat": 49.2827,
+    "lng": -123.1207,
+    "business_unit": "AAG"
+  },
+  {
+    "name": "AAG Store 3",
+    "country": "Mexico",
+    "lat": 20.6597,
+    "lng": -103.3496,
+    "business_unit": "AAG"
+  },
+  {
+    "name": "AAG Store 4",
+    "country": "U.K.",
+    "lat": 53.4808,
+    "lng": -2.2426,
+    "business_unit": "AAG"
+  },
+  {
+    "name": "AAG Store 5",
+    "country": "France",
+    "lat": 45.764,
+    "lng": 4.8357,
+    "business_unit": "AAG"
+  },
+  {
+    "name": "AAG Store 6",
+    "country": "Germany",
+    "lat": 50.9375,
+    "lng": 6.9603,
+    "business_unit": "AAG"
+  },
+  {
+    "name": "AAG Store 7",
+    "country": "Ireland",
+    "lat": 52.6638,
+    "lng": -8.6267,
+    "business_unit": "AAG"
+  },
+  {
+    "name": "AAG Store 8",
+    "country": "Netherlands",
+    "lat": 51.9244,
+    "lng": 4.4777,
+    "business_unit": "AAG"
+  },
+  {
+    "name": "AAG Store 9",
+    "country": "Belgium",
+    "lat": 50.6403,
+    "lng": 4.6667,
+    "business_unit": "AAG"
+  },
+  {
+    "name": "AAG Store 10",
+    "country": "Poland",
+    "lat": 50.0647,
+    "lng": 19.945,
+    "business_unit": "AAG"
+  },
+
+  {
+    "name": "APAC Store 1",
+    "country": "Australia",
+    "lat": -33.8688,
+    "lng": 151.2093,
+    "business_unit": "APAC"
+  },
+  {
+    "name": "APAC Store 2",
+    "country": "Australia",
+    "lat": -37.8136,
+    "lng": 144.9631,
+    "business_unit": "APAC"
+  },
+  {
+    "name": "APAC Store 3",
+    "country": "New Zealand",
+    "lat": -36.8485,
+    "lng": 174.7633,
+    "business_unit": "APAC"
+  },
+  {
+    "name": "APAC Store 4",
+    "country": "New Zealand",
+    "lat": -41.2865,
+    "lng": 174.7762,
+    "business_unit": "APAC"
+  },
+  {
+    "name": "APAC Store 5",
+    "country": "Australia",
+    "lat": -27.4698,
+    "lng": 153.0251,
+    "business_unit": "APAC"
+  },
+  {
+    "name": "APAC Store 6",
+    "country": "Australia",
+    "lat": -31.9505,
+    "lng": 115.8605,
+    "business_unit": "APAC"
+  },
+  {
+    "name": "APAC Store 7",
+    "country": "New Zealand",
+    "lat": -45.8788,
+    "lng": 170.5028,
+    "business_unit": "APAC"
+  },
+  {
+    "name": "APAC Store 8",
+    "country": "Australia",
+    "lat": -34.9285,
+    "lng": 138.6007,
+    "business_unit": "APAC"
+  },
+  {
+    "name": "APAC Store 9",
+    "country": "New Zealand",
+    "lat": -38.6857,
+    "lng": 176.0702,
+    "business_unit": "APAC"
+  },
+  {
+    "name": "APAC Store 10",
+    "country": "Australia",
+    "lat": -35.2809,
+    "lng": 149.13,
+    "business_unit": "APAC"
+  }
+]
